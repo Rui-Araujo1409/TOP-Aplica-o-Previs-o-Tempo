@@ -19,7 +19,13 @@ submeterLocal.addEventListener("click", () => {
         const resposta = await fetch(url);
         const respostaObj = await resposta.json();
         const respostaSumário = await respostaObj.description;
+        const respostaPrevisão = await respostaObj.days;
+        console.log(respostaObj);
         console.log(respostaSumário);
+        console.log(respostaPrevisão);
+        respostaPrevisão.forEach(item => {
+            console.log(item.conditions);
+        });
         const textoSumário = document.querySelector(".sumario"); 
         textoSumário.textContent = respostaSumário;
     };
